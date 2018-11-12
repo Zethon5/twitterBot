@@ -4,8 +4,8 @@ import random
 from keys import keys                                                     #This will import users specific keys from their own key.py file
 print('Turning Twitter Bot On.')
 
-time.sleep(1)
 
+totalTime = 0                                                             # This will be so you can keep track of how long the program has been on
 CONSUMER_KEY = keys['cons_key']
 CONSUMER_SECRET = keys['cons_sec']
 ACCESS_KEY = keys['acc_key']
@@ -71,4 +71,6 @@ def replyToTweets():
 
 while True:                         #This is the endless loop that just runs the programs until force stopped.
     replyToTweets()
-    time.sleep(15)
+    totalTime += 15
+    print('Search for ' + str(totalTime - 15) + ' seconds')          # I do the -15 to get rid of the original 15 seconds..otherwise it would be 
+    time.sleep(15)                                                   # 15 seconds more than the actual time. 
