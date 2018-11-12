@@ -1,0 +1,11 @@
+This is a simple twitter bot script using tweepy that when run will just respond to anyone that '@'s the bot and says something 
+like 'hi' or 'how are you'. This bot will also like the users tweet. 
+
+I could only get this to work by running it on PythonAnywhere.com using their $ BASH console. Unfortunately this won't 
+work properly with python 3.7. (works fine with python 3.6)
+
+I got a lot of help from Youtube.com -> CS Dojo.
+
+This project was my first project using the tweepy library and was more to get familiar with the tweepy library.
+Using CS Dojo's code, I mainly tried to just build a bot more for my preferences, and can now likely start to create
+other tweepy bots on my own. 
