@@ -2,7 +2,8 @@ This is a simple twitter bot script using tweepy that when run will just respond
 like 'hi' or 'how are you'. This bot will also like the users tweet. 
 
 I could only get this to work by running it on PythonAnywhere.com using their $ BASH console. Unfortunately this won't 
-work properly with python 3.7. (works fine with python 3.6)
+work properly with python 3.7. (works fine with python 3.6) Using a PythonAnywhere.com free account I am also able to keep the 
+bot running for extended amounts of time without needing the program to run on my computer at all. 
 
 I got a lot of help from Youtube.com -> CS Dojo.
 
