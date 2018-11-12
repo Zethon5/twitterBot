@@ -26,30 +26,30 @@ goodResponses = ['Hi, how are you?', 'Hello!', 'Hello, how are you?', 'You Calle
 happyResponses = ["I'm great!", "I'm doing well!", "It's a great day to be a bot!", "I am good, how are you?"]
 spanishResponses = ['Hola!', 'Que pasa?', 'Como estas?']
 
-def reply_to_tweets():
+def replyToTweets():
     print('searching for tweets..')
 
-    def retrieve_last_seen_id(file_name):                                 # THIS OPENS THE FILE WITH THE LAST ID
+    def retrieveLastSeenID(fileName):                                 # THIS OPENS THE FILE WITH THE LAST ID
         f_read = open(file_name, 'r')
         last_seen_id=int(f_read.read().strip())
         f_read.close()
         return last_seen_id
 
-    def store_last_seen_id(last_seen_id, file_name):                      # IF THE BOT RESPONDS TO A TWEET, IT SAVES THE ID TO BE REFERENCED
-        f_write = open(file_name, 'w')                                    # LATER SO IT DOESNT RESPOND TO THE SAME TWEET MORE THAN ONCE.
-        f_write.write(str(last_seen_id))
+    def storeLastSeenID(last_seen_id, fileName):                      # IF THE BOT RESPONDS TO A TWEET, IT SAVES THE ID TO BE REFERENCED
+        f_write = open(fileName, 'w')                                    # LATER SO IT DOESNT RESPOND TO THE SAME TWEET MORE THAN ONCE.
+        f_write.write(str(lastSeenID))
         f_write.close()
         return
 
-    last_seen_id = retrieve_last_seen_id(fileName)              
+    lastSeenID = retrieveLastSeenID(fileName)              
     mentions = api.mentions_timeline(
-                                last_seen_id,
+                                lastSeenID,
                                 tweet_mode='extended')
 
     for mention in reversed(mentions):
         print(str(mention.id) + ' - ' + str(mention.full_text))
-        last_seen_id = mention.id
-        store_last_seen_id(last_seen_id, fileName)
+        lastSeenID = mention.id
+        storeLastSeenID(lastSeenID, fileName)
         #THESE ARE THE HOW ARE YOU RESPONSES
         if 'how are you' in mention.full_text.lower() or 'it going' in mention.full_text.lower() or 'it goin' in mention.full_text.lower() or 'it hanging' in mention.full_text.lower() or 'how are ya' in mention.full_text.lower():
             print('pyBot Called.')
@@ -70,5 +70,5 @@ def reply_to_tweets():
             api.create_favorite(mention.id)
 
 while True:                         #This is the endless loop that just runs the programs until force stopped.
-    reply_to_tweets()
+    replyToTweets()
     time.sleep(15)
